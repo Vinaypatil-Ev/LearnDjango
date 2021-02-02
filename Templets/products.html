@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Products from database</h1>
+{% for i in Products %}
+<h3> Name: </h3> <h5> {{ i.product_name }} </h5>
+<h3> Description: </h3> <h5> {{ i.product_desc }} </h5> 
+<h3> Price: </h3> <h5> {{ i.product_price }} </h5>  
+<br>
+{% endfor %}
+<hr>
+<h1>Add product to database</h1>
+
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="save" />
+</form>
+
+{% endblock %}

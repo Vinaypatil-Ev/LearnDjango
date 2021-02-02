@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>This is Home page</h1>
+<br>
+<h5>This context content</h5>
+<P>
+    {{ my_name|capfirst }}
+    <br>
+    {{ last_name }}
+    <br>
+    {{ my_html }}
+    {{ my_html|safe }}
+    {{ my_html|striptags }}
+    <br>
+<ul>
+    {% for i in rnos %}
+    {% if i == "abc" %}
+    <li>{{ forloop.counter}}: {{ i }}</li>
+    {% elif i == 1 %}
+    <li>{{ forloop.counter}}: {{ i|add:10 }}</li>
+    {% else %}
+    <li>{{ forloop.counter}}: {{ i }}</li>
+
+    {% endif %}
+    {% endfor %}
+</ul>
+    
+</P> 
+{% endblock %}
