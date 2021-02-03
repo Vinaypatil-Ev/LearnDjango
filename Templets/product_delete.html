@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Products</h1>
+{% for prod in Products %}
+<p>
+    <form method="POST"> {% csrf_token %}
+        <h3>{{ prod.product_name }}
+        <input type="hidden" name="id" value="{{ prod.id }}">
+        <input type="submit" value="delete">
+        </h3>
+    </form>
+</p>
+{% endfor %}
+
+{% endblock %}
